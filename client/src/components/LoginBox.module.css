@@ -1,0 +1,48 @@
+
+.main{
+    background-color: #131313;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 30px;
+    color: #ADADAD;
+    border-radius: 20px;
+    gap: 20px;
+}
+.authHeader{
+    font-size: 25px;
+    color: #d8d8d8;
+}
+label{
+    width: 100%;
+    font-size: 15px;
+}
+input{
+    width: 100%;
+    padding: 7px;
+    background-color: #1A1A1A;
+    border: 2px solid #272727;
+    border-radius: 3px;
+    position: relative;
+    color: #757575;
+    font-size: 17px;
+}
+.authButton{
+    width: 100%;
+    background-color: #d8d8d8;
+    color: #181818;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity ease 0.2s;
+}
+.authButton:hover{
+    opacity: 0.9;
+}
+p{
+    font-size: 13px;
+}

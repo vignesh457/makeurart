@@ -1,0 +1,76 @@
+.main{
+    width: 90%;
+    height: 130px;
+    padding: 10px;
+}
+.header{
+    width: 100%;
+    height: 35%;
+    display: flex;
+}
+.leftHeader{
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rightHeader{
+    height: 100%;
+    color: grey;
+    flex: 0.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+}
+.body{
+    width: 100%;
+    height: 65%;
+    margin: 10px 0px;
+    padding: 5px 10px;
+    overflow-y: scroll;
+    color: rgb(152, 152, 152);
+    font-size: 13px;
+}
+.body::-webkit-scrollbar{
+    display: none;
+}
+.dp{
+    height: 70%;
+    border-radius: 50%;
+    padding: 0 10px;
+}
+.nameRatingCtn{
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+.name{
+    overflow: hidden;
+    font-size: 18px;
+    color: white;
+}
+.rating{
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 768px){
+    .main{
+        width: 100%;
+    }
+    .rightHeader{
+        flex: 0.3;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .nameRatingCtn{
+        flex-direction: column;
+        gap: 3px;
+    }
+    .name{
+        font-size: 16px;
+    }
+}

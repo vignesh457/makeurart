@@ -1,0 +1,46 @@
+.main{
+    background-color: rgba(0, 0, 0, 0.519);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 65px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    border-bottom: 1px solid rgba(118, 118, 118, 0.5);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.logoCtn{
+    flex: 0.1;
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 10px;
+}
+.logoCtn img{
+    height: 50%;
+}
+.searchCtn{
+    flex: 1;
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.sortCtn{
+    flex: 0.4;
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.logCtn{
+    flex: 0.3;
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

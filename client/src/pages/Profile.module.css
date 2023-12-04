@@ -1,0 +1,14 @@
+.main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.mainInner{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.mainInner::-webkit-scrollbar{
+    display: none;
+}

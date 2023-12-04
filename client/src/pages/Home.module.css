@@ -1,0 +1,76 @@
+
+.main{
+    background: linear-gradient(90deg, rgb(55 55 55) 0%, rgb(44 44 44) 50%, rgb(40 40 40) 100%);
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    gap: 50px;
+    padding: 70px 15px 70px 15px;
+}
+.bannerCtn{
+    background-color: rgba(0, 0, 0, 0.627);
+    width: 100%;
+    height: 45vh;
+    border-radius: 10px;
+    border: 2px solid rgba(152, 152, 152, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+.bannerHeading{
+    color: #59acff97;
+    font-size: 60px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.bannerSubHeading{
+    color: rgb(92, 92, 92);
+    width: 70%;
+    text-align: center;
+}
+.headerHome{
+    color: rgba(240, 240, 240, 0.814);
+    font-size: 25px;
+    font-weight: 500;
+    margin: 80px 0px 10px 0px;
+    padding: 15px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(30,30,30,1) 11%, rgba(30,30,30,0.009016106442576999) 100%);
+}
+.headerHome span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.headerHome div{
+    font-weight: 700;
+}
+.artistCtn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(152, 152, 152, 0.1);
+    background-color: rgba(0, 0, 0, 0.133);
+}
+
+@media screen and (max-width: 600px){
+    .bannerHeading{
+        font-size: 40px;
+    }
+    .bannerSubHeading{
+        display: none;
+    }
+    .headerHome{
+        margin: 60px 0px 10px 0px;
+    }
+    .bannerCtn{
+        height: 35vh;
+    }
+}

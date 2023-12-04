@@ -1,0 +1,11 @@
+.main{
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(90deg, rgba(55,55,55,1) 0%, rgba(82,82,82,1) 50%, rgba(55,55,55,1) 100%);
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}

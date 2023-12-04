@@ -1,0 +1,28 @@
+.main{
+    width: 100%;
+    min-height: 100%;
+    background-color: #343434;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.homeBtn{
+    position: absolute;
+    left: 22px;
+    top: 22px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #040404;
+    color: #838383;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    z-index: 2;
+    cursor: pointer;
+}
+.homeBtn:hover{
+    background-color: black;
+    color: #bababa;
+}

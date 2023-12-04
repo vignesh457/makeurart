@@ -25,7 +25,7 @@ function SelectUserType() {
             return;
         }
         try{
-            const userResponse = await fetch(`/api/auth/${currentUser?._id}`,{
+            const userResponse = await fetch(`https://makeurart-api.vercel.app/api/auth/${currentUser?._id}`,{
                 method:"PUT",
                 headers:{
                     "Content-Type":"application/json"

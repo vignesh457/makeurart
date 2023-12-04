@@ -26,7 +26,7 @@ const Review = React.memo(() =>{
                 dispatch(setAlert({type: 'warning', message: 'Rate by clicking the stars (1-5)'}))
                 return;
             }
-            const registerData = await fetch(`/api/register/${params.id}`,{
+            const registerData = await fetch(`https://makeurart-api.vercel.app/api/register/${params.id}`,{
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

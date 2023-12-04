@@ -48,7 +48,7 @@ function CreatePostBox() {
                 dispatch(setAlert({type: 'warning', message: "Please select more then 3 tags"}))
                 return;
             }
-            const registerData = await fetch("/api/post",{
+            const registerData = await fetch("https://makeurart-api.vercel.app/api/post",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

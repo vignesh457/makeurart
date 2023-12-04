@@ -25,7 +25,7 @@ const ProfileHeader = React.memo(() =>{
 
   const fetchUserData = async() =>{
     try{
-      const data = await fetch(`/api/register/${params.id}`)
+      const data = await fetch(`https://makeurart-api.vercel.app/api/register/${params.id}`)
       const res = await data.json();
       setUserData(res);
       dispatch(setActivePage(res));

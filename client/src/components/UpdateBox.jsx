@@ -55,7 +55,7 @@ function UpdateBox() {
                 dispatch(setAlert({type: 'warning', message: "Please select more then 3 Interests"}))
                 return;
             }
-            const registerData = await fetch(`/api/register/${params.id}`,{
+            const registerData = await fetch(`https://makeurart-api.vercel.app/api/register/${params.id}`,{
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -82,7 +82,7 @@ function UpdateBox() {
     }
 
     const fetchUserData = async()=>{
-        const data = await fetch(`/api/register/${params.id}`)
+        const data = await fetch(`https://makeurart-api.vercel.app/api/register/${params.id}`)
         const res = await data.json();
         setUserData(res)
         setInterests(res.interests)

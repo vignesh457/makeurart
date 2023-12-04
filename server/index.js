@@ -11,10 +11,12 @@ const path = require('path')
 
 const PORT = process.env.PORT;
 
-app.use(express.static(path.join(__dirname, '/client/build')))
+const clientBuildPath = path.join(__dirname, '../client/build');
 
-app.get('*',(req, res)=>{
-    res.sendFile(path.join(__dirname,'client','build','index.html'));
+app.use(express.static(clientBuildPath));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(clientBuildPath, 'index.html'));
 });
 
 app.use(cors());

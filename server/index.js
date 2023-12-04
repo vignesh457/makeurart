@@ -7,17 +7,8 @@ require("dotenv").config();
 const authRoute = require('./Routes/authRoute')
 const registerRoute = require('./Routes/registerRoute')
 const postRoute = require('./Routes/postRoute')
-const path = require('path')
 
 const PORT = process.env.PORT;
-
-const clientBuildPath = path.join(__dirname, '../client/build');
-
-app.use(express.static(clientBuildPath));
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(clientBuildPath, 'index.html'));
-});
 
 app.use(cors());
 app.use(express.json());

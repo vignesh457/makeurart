@@ -7,13 +7,14 @@ require("dotenv").config();
 const authRoute = require('./Routes/authRoute')
 const registerRoute = require('./Routes/registerRoute')
 const postRoute = require('./Routes/postRoute')
+const path = require('path')
 
 const PORT = process.env.PORT;
 
-app.use(express.static(__dirname)); //here is important thing - no static directory, because all static :)
+app.use(express.static(path.join(__dirname, '/client/build')))
 
-app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
+app.get('*',(req, res)=>{
+    res.sendFile(path.join(__dirname,'client','build','index.html'));
 });
 
 app.use(cors());

@@ -11,8 +11,6 @@ const path = require('path')
 
 const PORT = process.env.PORT;
 
-const __dirname = path.resolve();
-
 app.use(express.static(path.join(__dirname, '/client/build')))
 
 app.get('*',(req, res)=>{

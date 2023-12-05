@@ -16,7 +16,7 @@ const handleSignup = async(req, res, next)=>{
         })
         const {password: pass, ...rest} = userData._doc;
         const jwtToken = jwt.sign({ id: userData._id}, process.env.JWT_SECRET);
-        res.cookie("access_token", jwtToken,{httpOnly: true, maxAge: 1000*60*60*24*30}).status(201).json(rest);
+        res.cookie("access_token", jwtToken,{httpOnly: true, maxAge: 1000*60*60*24*30, secure: true, sameSite: 'None'}).status(201).json(rest);
     }
     catch(err){
         if(err.code === 11000){
@@ -39,7 +39,7 @@ const handleLogin = async(req, res, next)=>{
         }
         const {password: pass, ...rest} = userData._doc;
         const jwtToken = jwt.sign({ id: userData._id}, process.env.JWT_SECRET);
-        res.cookie("access_token", jwtToken,{httpOnly: true, maxAge: 1000*60*60*24*30}).status(200).json(rest);
+        res.cookie("access_token", jwtToken,{httpOnly: true, maxAge: 1000*60*60*24*30, secure: true, sameSite: 'None'}).status(200).json(rest);
     }
     catch(err){
         next(err);
@@ -54,7 +54,7 @@ const handleGoogle = async(req, res, next)=>{
             //existing entry
             const {password: pass,...rest} = user._doc;
             const jwtToken = jwt.sign({ id: user._id}, process.env.JWT_SECRET);
-            res.cookie("access_token", jwtToken,{httpOnly: true, maxAge: 1000*60*60*24*30}).status(200).json(rest);
+            res.cookie("access_token", jwtToken,{httpOnly: true, maxAge: 1000*60*60*24*30, secure: true, sameSite: 'None'}).status(200).json(rest);
         }
         else{
             //new entry
@@ -67,7 +67,7 @@ const handleGoogle = async(req, res, next)=>{
             })
             const {password: pass,...rest} = userData._doc;
             const jwtToken = jwt.sign({ id: userData._id}, process.env.JWT_SECRET);
-            res.cookie("access_token", jwtToken,{httpOnly: true, maxAge: 1000*60*60*24*30}).status(201).json(rest);
+            res.cookie("access_token", jwtToken,{httpOnly: true, maxAge: 1000*60*60*24*30, secure: true, sameSite: 'None'}).status(201).json(rest);
         }
     }
     catch(err){

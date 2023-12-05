@@ -50,6 +50,7 @@ function CreatePostBox() {
             }
             const registerData = await fetch("https://makeurart-api.vercel.app/api/post",{
                 method: "POST",
+                credentials: 'include',
                 headers: {
                     "Content-Type": "application/json",
                 },

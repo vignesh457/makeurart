@@ -28,6 +28,7 @@ const Review = React.memo(() =>{
             }
             const registerData = await fetch(`https://makeurart-api.vercel.app/api/register/${params.id}`,{
                 method: "PUT",
+                credentials: 'include',
                 headers: {
                     "Content-Type": "application/json",
                 },

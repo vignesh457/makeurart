@@ -17,7 +17,12 @@ const PostDetails = React.memo(() => {
     const fetchData = async() => {
         try{
             dispatch(setLoader(true))
-            const postData = await fetch(`https://makeurart-api.vercel.app/api/post/p/${params.id}`)
+            const postData = await fetch(`https://makeurart-api.vercel.app/api/post/p/${params.id}`,{
+                method: 'GET', 
+                credentials: 'include',
+                headers: {
+                  'Content-Type': 'application/json',
+            }})
             const res = await postData.json();
             if(res.success===false) {
                 dispatch(setAlert({type: 'error', message: res.message}))

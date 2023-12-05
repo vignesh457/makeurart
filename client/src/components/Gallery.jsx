@@ -20,7 +20,12 @@ const Gallery = React.memo(() => {
   const fetchAllUsers = async()=>{
     try{
       dispatch(setLoader(true));
-      const allPostResponse = await fetch(`https://makeurart-api.vercel.app/api/post/${params.id}`);
+      const allPostResponse = await fetch(`https://makeurart-api.vercel.app/api/post/${params.id}`,{
+        method: 'GET', 
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+      }});
       const allPosts = await allPostResponse.json();
       setFrames(allPosts);
       dispatch(setLoader(false));

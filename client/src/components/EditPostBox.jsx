@@ -33,7 +33,12 @@ function EditPostBox() {
 
     const fetchPostData = async() => {
         try{
-            const postData = await fetch(`https://makeurart-api.vercel.app/api/post/p/${params.id}`)
+            const postData = await fetch(`https://makeurart-api.vercel.app/api/post/p/${params.id}`,{
+                method: 'GET', 
+                credentials: 'include',
+                headers: {
+                  'Content-Type': 'application/json',
+            }});
             const res = await postData.json();
             if(res.success==false) {
                 dispatch(setAlert({type: 'error', message: res.message}))
@@ -71,6 +76,7 @@ function EditPostBox() {
             }
             const registerData = await fetch(`https://makeurart-api.vercel.app/api/post/${params.id}`,{
                 method: "PUT",
+                credentials: 'include',
                 headers: {
                     "Content-Type": "application/json",
                 },

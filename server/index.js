@@ -11,14 +11,6 @@ const path = require('path')
 
 const PORT = process.env.PORT;
 
-const clientBuildPath = path.join(__dirname, '../client/build');
-
-app.use(express.static(clientBuildPath));
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(clientBuildPath, 'index.html'));
-});
-
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
@@ -37,6 +29,14 @@ app.use((err, req, res, next)=>{
     })
 })
 
-app.listen(8000,()=>{
+const clientBuildPath = path.join(__dirname, '../client/build');
+
+app.use(express.static(clientBuildPath));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(clientBuildPath, 'index.html'));
+});
+
+app.listen(PORT,()=>{
     console.log("server running at port: "+PORT);
 })

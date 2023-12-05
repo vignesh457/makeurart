@@ -16,12 +16,7 @@ const HomeGallery = React.memo(() => {
   const fetchPosts = async()=>{
     try{
       dispatch(setLoader(true))
-      const postData = await fetch(`https://makeurart-api.vercel.app/api/post/category/${params.id}`,{
-        method: 'GET', 
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-      }})
+      const postData = await fetch(`https://makeurart-api.vercel.app/api/post/category/${params.id}`)
       const res = await postData.json();
       setPosts(res);
       dispatch(setLoader(false))

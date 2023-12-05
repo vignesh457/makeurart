@@ -57,7 +57,6 @@ function UpdateBox() {
             }
             const registerData = await fetch(`https://makeurart-api.vercel.app/api/register/${params.id}`,{
                 method: "PUT",
-                credentials: 'include',
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -83,12 +82,7 @@ function UpdateBox() {
     }
 
     const fetchUserData = async()=>{
-        const data = await fetch(`https://makeurart-api.vercel.app/api/register/${params.id}`,{
-            method: 'GET', 
-            credentials: 'include',
-            headers: {
-              'Content-Type': 'application/json',
-        }})
+        const data = await fetch(`https://makeurart-api.vercel.app/api/register/${params.id}`)
         const res = await data.json();
         setUserData(res)
         setInterests(res.interests)

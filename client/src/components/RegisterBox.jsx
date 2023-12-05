@@ -60,7 +60,6 @@ function RegisterBox() {
             }
             const registerData = await fetch("https://makeurart-api.vercel.app/api/register",{
                 method: "POST",
-                credentials: 'include',
                 headers: {
                     "Content-Type": "application/json",
                 },

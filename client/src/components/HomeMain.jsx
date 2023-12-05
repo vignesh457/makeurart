@@ -15,12 +15,7 @@ const HomeMain = React.memo(() => {
     const fetchAllUsers = async()=>{
       try{
         dispatch(setLoader(true))
-        const allUserResponse = await fetch('https://makeurart-api.vercel.app/api/register/',{
-          method: 'GET', 
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-        }});
+        const allUserResponse = await fetch('https://makeurart-api.vercel.app/api/register/');
         const allUsers = await allUserResponse.json();
         setCreators(allUsers);
         dispatch(setLoader(false))

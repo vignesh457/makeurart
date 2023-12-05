@@ -16,7 +16,6 @@ function LoginBox() {
         try{
             const userResponse = await fetch("https://makeurart-api.vercel.app/api/auth/login",{
                 method: 'POST',
-                credentials: 'include',
                 headers: {
                 'Content-Type': 'application/json',
                 },

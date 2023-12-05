@@ -6,6 +6,7 @@ import LoginMui from './LoginMui';
 import { useSelector } from 'react-redux';
 import Avatar from '../components/Avatar';
 import { useNavigate } from 'react-router-dom';
+import LogoutMui from './LogoutMui';
 
 function MenuMui() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -47,8 +48,8 @@ function MenuMui() {
               'aria-labelledby': 'basic-button',
             }}
         >
-        <MenuItem onClick={handleClose}> <SelectMui/> </MenuItem>
-        <MenuItem onClick={handleClose}> { currentUser ? <><Avatar/><h3 onClick={()=>navigate(`/user/${currentUser._id}`)}> My profile</h3></> : <LoginMui/>} </MenuItem>
+        <MenuItem onClick={handleClose}> <SelectMui/> </MenuItem> 
+        <MenuItem onClick={handleClose}>{ currentUser ? (currentUser.usertype==='creator'?<><Avatar/><h3 onClick={()=>navigate(`/user/${currentUser._id}`)}> My profile</h3></> :<LogoutMui/>) : <LoginMui/>}</MenuItem>
       </Menu>
     </>
   )

@@ -40,10 +40,10 @@ const ProfileHeader = React.memo(() =>{
   }
 
   const averageRating = useMemo(() => {
-      const sum = activePage.comments.reduce((sum, comment) => sum + comment.rating||0,0);
-      const average = sum/activePage.comments.length || 0;
+      const sum = activePage?.comments.reduce((sum, comment) => sum + comment.rating||0,0);
+      const average = sum/activePage?.comments.length || 0;
       return parseFloat(average.toFixed(1));
-  },[activePage.comments])
+  },[activePage?.comments])
 
   useEffect(() => {
     fetchUserData();
@@ -65,7 +65,7 @@ const ProfileHeader = React.memo(() =>{
             { owner && <Tooltip title="Edit Profile"><div className={css.editCtn} onClick={handleEdit}><EditIcon/></div></Tooltip> }
             { owner && <div className={css.logoutCtn}><LogoutMui/></div> }
           <h3 className={css.name}>{userData?.username}</h3>
-          <div className={css.rating}><Rating name="read-only" value={averageRating} precision={0.5} readOnly className={css?.ratingIcon} />  {activePage.comments.length} reviews</div>
+          <div className={css.rating}><Rating name="read-only" value={averageRating} precision={0.5} readOnly className={css?.ratingIcon} />  {activePage?.comments.length} reviews</div>
           <div className={css.history}>
             <span><LocationOnOutlinedIcon className={css.historyIcon}/>{userData?.address?.city}, {userData?.address?.country}</span>
             <span><CalendarMonthOutlinedIcon className={css.historyIcon}/>Joined {userData?.joinDate}</span>

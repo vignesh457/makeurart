@@ -32,7 +32,7 @@ const Review = React.memo(() =>{
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    comments: [...activePage.comments,{name: currentUser.username, dp: currentUser.avatar, message: reviewInput.comment, rating: reviewInput.rating, createdAt: new Date().toISOString()}]
+                    comments: [...activePage?.comments,{name: currentUser.username, dp: currentUser.avatar, message: reviewInput.comment, rating: reviewInput.rating, createdAt: new Date().toISOString()}]
                 }),
             });
             const res = await registerData.json();
@@ -40,7 +40,7 @@ const Review = React.memo(() =>{
                 dispatch(setAlert({type: 'error', message: res.message}))
                 return;
             }
-            dispatch(setActivePage({...activePage, comments: [...activePage.comments, {name: currentUser.username, dp: currentUser.avatar, message: reviewInput.comment, rating: reviewInput.rating, createdAt: new Date().toISOString()}]}))
+            dispatch(setActivePage({...activePage, comments: [...activePage?.comments, {name: currentUser.username, dp: currentUser.avatar, message: reviewInput.comment, rating: reviewInput.rating, createdAt: new Date().toISOString()}]}))
             dispatch(setAlert({type: 'success', message: "Your comment is live"}))
             handleClose()
         }
@@ -64,15 +64,15 @@ const Review = React.memo(() =>{
     }
 
     const averageRating = useMemo(() => {
-        const sum = activePage.comments.reduce((sum, comment) => sum + comment.rating||0,0);
-        const average = sum/activePage.comments.length || 0;
+        const sum = activePage?.comments.reduce((sum, comment) => sum + comment.rating||0,0);
+        const average = sum/activePage?.comments.length || 0;
         console.log(sum+" total ")
         return parseFloat(average.toFixed(1));
-    },[activePage.comments])
+    },[activePage?.comments])
 
     const percentageRating = (rating) => {
-        const sum = activePage.comments.filter((comment) => comment.rating===rating).length;
-        const average = sum/activePage.comments.length * 100 || 0;
+        const sum = activePage?.comments.filter((comment) => comment.rating===rating).length;
+        const average = sum/activePage?.comments.length * 100 || 0;
         console.log(Math.round(average)+`-${rating}%`);
         return Math.round(average);
     }
@@ -96,20 +96,20 @@ const Review = React.memo(() =>{
                     {currentUser && <button onClick={()=>setReviewToggle(true)}>Write Review</button>}
                 </div>
                 <div className={css.ratingProgressCtn}>
-                    <ProgressBar key="5" type="Excellent" color="#00B050" value={useMemo(()=>percentageRating(5),[activePage.comments])}/>
-                    <ProgressBar key="4" type="Good" color="#92D050" value={useMemo(()=>percentageRating(4),[activePage.comments])}/>
-                    <ProgressBar key="3" type="Average" color="#FFFF00" value={useMemo(()=>percentageRating(3),[activePage.comments])}/>
-                    <ProgressBar key="2" type="Below Average" color="#FFC000" value={useMemo(()=>percentageRating(2),[activePage.comments])}/>
-                    <ProgressBar key="1" type="Poor" color="#FF0000" value={useMemo(()=>percentageRating(1),[activePage.comments])}/>
+                    <ProgressBar key="5" type="Excellent" color="#00B050" value={useMemo(()=>percentageRating(5),[activePage?.comments])}/>
+                    <ProgressBar key="4" type="Good" color="#92D050" value={useMemo(()=>percentageRating(4),[activePage?.comments])}/>
+                    <ProgressBar key="3" type="Average" color="#FFFF00" value={useMemo(()=>percentageRating(3),[activePage?.comments])}/>
+                    <ProgressBar key="2" type="Below Average" color="#FFC000" value={useMemo(()=>percentageRating(2),[activePage?.comments])}/>
+                    <ProgressBar key="1" type="Poor" color="#FF0000" value={useMemo(()=>percentageRating(1),[activePage?.comments])}/>
                 </div>
             </div>
             <div className={css.commentCtn}>
                 {
-                    activePage.comments.map(comment => (
+                    activePage?.comments.map(comment => (
                         <Comment key={comment._id} name={comment.name} dp={comment.dp} message={comment.message} rating={comment.rating} date={comment.createdAt}/>
                     ))
                 }
-                {activePage.comments.length === 0 && <h1 style={{color: '#515151', textAlign: 'center'}}>Be the first to comment</h1>}
+                {activePage?.comments.length === 0 && <h1 style={{color: '#515151', textAlign: 'center'}}>Be the first to comment</h1>}
             </div>
         </div>
     )

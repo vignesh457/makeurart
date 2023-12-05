@@ -55,7 +55,7 @@ const HomeMain = React.memo(() => {
                   country={creator?.address.country}
                   bio={creator?.profile.bio}
                   interests={creator?.interests}
-                  rating={parseFloat((creator?.comments.reduce((sum, comment)=>sum+comment.rating||0,0)/creator.comments.length).toFixed(1))}
+                  rating={parseFloat((creator?.comments?.reduce((sum, comment)=>sum+comment.rating||0,0)/creator.comments.length).toFixed(1))}
                   review={creator?.comments.length}
                   id={creator?.userRef}
                 />

@@ -76,6 +76,7 @@
     text-decoration: underline;
     cursor: pointer;
     transition: all 0.1s ease;
+    width: fit-content;
 }
 .rightBox h4:hover{
     color: rgb(206, 206, 206);
@@ -126,7 +127,7 @@
 .commentCtn{
     width: 93%;
     height: fit-content;
-    padding: 10px;
+    padding: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,6 +139,7 @@
     color: rgba(234, 234, 234, 0.811);
     font-size: 33px;
     font-weight: 600;
+    margin-bottom: 15px;
 }
 
 @media only screen and (max-width: 768px){

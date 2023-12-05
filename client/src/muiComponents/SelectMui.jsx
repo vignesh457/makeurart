@@ -17,7 +17,7 @@ function SelectMui() {
               variant='filled'
               id="dropdown-label"
               focused={true}
-              style={{color: "#616161", fontSize: '18px'}}
+              style={{color: "#848484", fontSize: '18px'}}
           >
               Category
           </InputLabel>

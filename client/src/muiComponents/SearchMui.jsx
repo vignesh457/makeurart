@@ -44,7 +44,7 @@ function SearchMui() {
                 label="Search..."
                 variant='filled'
                 InputLabelProps={{
-                    style: { color: '#616161', fontSize: '18px' }
+                    style: { color: '#848484', fontSize: '18px' }
                 }}
                 InputProps={{
                   ...params.InputProps, 

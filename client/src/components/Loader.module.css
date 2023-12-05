@@ -7,7 +7,9 @@
     position: absolute;
     top: 0;
     z-index: 5;
-    background-color: #3B3B3B;
+    background-color: #3b3b3b00;
+    backdrop-filter: blur(10px);
+    transition: all 0.7s ease;
 }
 
 .loader {

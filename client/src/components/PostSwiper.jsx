@@ -16,7 +16,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 
 const PostSwiper = React.memo((props) =>{
-  const isMobile = useMediaQuery({maxWidth : 600});
+  const isMobile = useMediaQuery({maxWidth : 650});
   const [posts, setPosts] = useState([]);
   const [imageLoaded, setImageLoaded] = useState(false)
   const navigate = useNavigate();
@@ -39,13 +39,13 @@ const PostSwiper = React.memo((props) =>{
   return (
     <>
       <Swiper
-        slidesPerView={isMobile?3:4}
+        slidesPerView={isMobile?2:4}
         slidesPerGroup={1}
         spaceBetween={10}
         centeredSlides={true}
         loop={true}
         autoplay={{
-          delay: 2000,
+          delay: 1500,
           disableOnInteraction: false,
         }}
         navigation={true}

@@ -38,7 +38,7 @@
     display: none;
 }
 .dp{
-    height: 70%;
+    height: 90%;
     border-radius: 50%;
     padding: 0 10px;
 }
@@ -51,6 +51,7 @@
     overflow: hidden;
     font-size: 18px;
     color: white;
+    font-weight: 600;
 }
 .rating{
     display: flex;
@@ -72,5 +73,8 @@
     }
     .name{
         font-size: 16px;
+    }
+    .dp{
+        padding: 0 7px;
     }
 }

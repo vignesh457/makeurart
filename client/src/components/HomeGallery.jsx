@@ -5,6 +5,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { useDispatch } from 'react-redux';
 import { setLoader } from '../Reducers/UserSlice';
 import Post from './Post';
+import { useMediaQuery } from 'react-responsive';
 
 const HomeGallery = React.memo(() => {
   const [posts, setPosts] = useState([]);
@@ -12,6 +13,7 @@ const HomeGallery = React.memo(() => {
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isMobile = useMediaQuery({maxWidth : 650});
 
   const fetchPosts = async()=>{
     try{
@@ -37,7 +39,7 @@ const HomeGallery = React.memo(() => {
           posts.map((post)=>(
               <div key={post._id} onMouseOver={()=>setHover(post._id)} onMouseLeave={()=>setHover(null)} className={css.postImgCtn}>
                 {
-                  hover===post._id &&
+                  !isMobile && hover==post._id &&
                   <div className={css.postImgLayer} onClick={()=>navigate(`/post/${post._id}`)}>
                     <div className={css.postImgLayerTextCtn}>
                       <h3>{post.artBy}</h3>
@@ -45,7 +47,7 @@ const HomeGallery = React.memo(() => {
                     </div>
                   </div>
                 }
-                <Post postPic={post.postPic} postDesc={post.description}/>
+                <Post postPic={post.postPic} postDesc={post.description} postId={post._id}/>
                </div>
           ))
         }

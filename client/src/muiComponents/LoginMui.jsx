@@ -8,7 +8,8 @@ const buttonSytle = {
   border: "none",
   borderRadius: "5px",
   color: "white",
-  cursor: "pointer"
+  cursor: "pointer",
+  margin: "0px 14px"
 }
 function LoginMui() {
   const navigate = useNavigate();

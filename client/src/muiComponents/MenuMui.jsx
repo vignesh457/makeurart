@@ -5,10 +5,12 @@ import SelectMui from './SelectMui';
 import LoginMui from './LoginMui';
 import { useSelector } from 'react-redux';
 import Avatar from '../components/Avatar';
+import { useNavigate } from 'react-router-dom';
 
 function MenuMui() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const {currentUser} = useSelector(state=>state.user);
+    const navigate = useNavigate();
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -46,7 +48,7 @@ function MenuMui() {
             }}
         >
         <MenuItem onClick={handleClose}> <SelectMui/> </MenuItem>
-        <MenuItem onClick={handleClose}> { currentUser ? <><Avatar/><h3> My profile</h3></> : <LoginMui/>} </MenuItem>
+        <MenuItem onClick={handleClose}> { currentUser ? <><Avatar/><h3 onClick={()=>navigate(`/user/${currentUser._id}`)}> My profile</h3></> : <LoginMui/>} </MenuItem>
       </Menu>
     </>
   )

@@ -8,7 +8,6 @@
     top: 0;
     left: 0;
     z-index: 5;
-    background-color: #3b3b3b00;
     backdrop-filter: blur(10px);
     transition: all 0.7s ease;
 }

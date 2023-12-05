@@ -85,6 +85,8 @@ exports.TagData = [
     "Abstract Expressionism",
     "Symbolist Art",
     "Surrealist Art",
-    "Miniature Painting"
+    "Miniature Painting",
+    "Creative drawing",
+    "Innovative Drawing"
   ];
   

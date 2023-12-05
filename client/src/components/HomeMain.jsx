@@ -48,16 +48,16 @@ const HomeMain = React.memo(() => {
           {
             creators.map((creator)=>(
                 <Card 
-                  key={creator.userRef} 
-                  name={creator.username} 
-                  avatar={creator.profile.profilePic}
-                  city={creator.address.city}
-                  country={creator.address.country}
-                  bio={creator.profile.bio}
-                  interests={creator.interests}
-                  rating={parseFloat((creator.comments.reduce((sum, comment)=>sum+comment.rating||0,0)/creator.comments.length).toFixed(1))}
-                  review={creator.comments.length}
-                  id={creator.userRef}
+                  key={creator?.userRef} 
+                  name={creator?.username} 
+                  avatar={creator?.profile.profilePic}
+                  city={creator?.address.city}
+                  country={creator?.address.country}
+                  bio={creator?.profile.bio}
+                  interests={creator?.interests}
+                  rating={parseFloat((creator?.comments.reduce((sum, comment)=>sum+comment.rating||0,0)/creator.comments.length).toFixed(1))}
+                  review={creator?.comments.length}
+                  id={creator?.userRef}
                 />
             ))
           }

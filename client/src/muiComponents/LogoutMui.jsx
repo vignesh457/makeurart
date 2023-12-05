@@ -17,7 +17,7 @@ function LogoutMui() {
   const dispatch = useDispatch();
 
   const handleLogout = async() => {
-    const userResponse = await fetch("https://makeurart-api.vercel.app/api/auth/logout")
+    const userResponse = await fetch("/api/auth/logout")
     const res = await userResponse.json();
     if(res.success===false){
       console.log("Logout failed : ",userResponse);

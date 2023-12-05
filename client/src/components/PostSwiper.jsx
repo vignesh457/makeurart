@@ -23,7 +23,7 @@ const PostSwiper = React.memo((props) =>{
 
   const fetchPosts = async()=>{
     try{
-      const postData = await fetch(`https://makeurart-api.vercel.app/api/post/category/${props.type}`)
+      const postData = await fetch(`/api/post/category/${props.type}`)
       const res = await postData.json();
       setPosts(res);
     }

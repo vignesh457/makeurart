@@ -22,7 +22,7 @@ const Frame = React.memo((props)=>{
 
   const handleDelete = async() =>{
     try{
-      const deletedPost = await fetch(`https://makeurart-api.vercel.app/api/post/${id}`,{
+      const deletedPost = await fetch(`/api/post/${id}`,{
         method: "DELETE"
       })
       const res = await deletedPost.json();

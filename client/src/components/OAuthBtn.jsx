@@ -26,7 +26,7 @@ function OAuthBtn() {
       const provider = new GoogleAuthProvider();
       const auth = getAuth(app);
       const result = await signInWithPopup(auth, provider);
-      const userResponse = await fetch("https://makeurart-api.vercel.app/api/auth/google",{
+      const userResponse = await fetch("/api/auth/google",{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

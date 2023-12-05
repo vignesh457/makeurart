@@ -18,7 +18,7 @@ function SignupBox() {
     const handleSubmit = async(e)=>{
         e.preventDefault();
         try{
-            const userResponse = await fetch("https://makeurart-api.vercel.app/api/auth/signup",{
+            const userResponse = await fetch("/api/auth/signup",{
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

@@ -58,7 +58,7 @@ function RegisterBox() {
                 dispatch(setAlert({type: 'warning', message: "Please select more then 3 Interests"}))
                 return;
             }
-            const registerData = await fetch("https://makeurart-api.vercel.app/api/register",{
+            const registerData = await fetch("/api/register",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

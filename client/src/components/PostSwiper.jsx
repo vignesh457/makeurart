@@ -14,21 +14,28 @@ import './PostSwiper.css';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setAlert } from '../Reducers/UserSlice';
 
 const PostSwiper = React.memo((props) =>{
   const isMobile = useMediaQuery({maxWidth : 650});
   const [posts, setPosts] = useState([]);
   const [imageLoaded, setImageLoaded] = useState(false)
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const fetchPosts = async()=>{
     try{
       const postData = await fetch(`/api/post/category/${props.type}`)
       const res = await postData.json();
+      if(res.success===false){
+        throw new Error(res.message);
+      }
       setPosts(res);
     }
     catch(err){
-      console.log(err);
+      dispatch(setAlert({type: 'warning', message: "Sorry, unable to load swiper data"}))
+      console.error(err);
     }
   }
 

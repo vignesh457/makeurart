@@ -10,7 +10,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Zoom } from '@mui/material';
-import { setActivePage, setLoader } from '../Reducers/UserSlice';
+import { setActivePage, setAlert, setLoader } from '../Reducers/UserSlice';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ProfileHeader = React.memo(() =>{
@@ -27,10 +27,15 @@ const ProfileHeader = React.memo(() =>{
     try{
       const data = await fetch(`/api/register/${params.id}`)
       const res = await data.json();
+      if(res.success===false){
+        throw new Error(res.message);
+      }
       setUserData(res);
       dispatch(setActivePage(res));
     }
     catch(err){
+      dispatch(setAlert({type: 'warning', message: "Sorry, unable to load the profile"}))
+      navigate('/')
       console.error(err);
     }
   }

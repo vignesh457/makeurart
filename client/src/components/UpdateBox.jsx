@@ -82,12 +82,22 @@ function UpdateBox() {
     }
 
     const fetchUserData = async()=>{
-        const data = await fetch(`/api/register/${params.id}`)
-        const res = await data.json();
-        setUserData(res)
-        setInterests(res.interests)
-        setProfileURL(res.profile.profilePic)
-        setBannerURL(res.profile.bannerPic)
+        try{
+            const data = await fetch(`/api/register/${params.id}`)
+            const res = await data.json();
+            if(res.success===false){
+                throw new Error(res.message);
+            }
+            setUserData(res)
+            setInterests(res.interests)
+            setProfileURL(res.profile.profilePic)
+            setBannerURL(res.profile.bannerPic)
+        }
+        catch(err){
+            dispatch(setAlert({type: 'warning', message: "Sorry, unable to load profile data"}))
+            navigate(-1)
+            console.error(err);
+        }
     }
 
     useEffect(() => {

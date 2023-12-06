@@ -6,8 +6,8 @@ import postBtnImg from '../images/postBtn.png'
 import { Zoom } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoader } from '../Reducers/UserSlice';
-import Review from './Review';
+import { setAlert, setLoader } from '../Reducers/UserSlice';
+const Review = React.lazy(()=>import('./Review'))
 
 const Gallery = React.memo(() => {
   const navigate = useNavigate()
@@ -22,12 +22,17 @@ const Gallery = React.memo(() => {
       dispatch(setLoader(true));
       const allPostResponse = await fetch(`/api/post/${params.id}`);
       const allPosts = await allPostResponse.json();
+      if(allPosts.success===false){
+        throw new Error(allPosts.message);
+      }
       setFrames(allPosts);
       dispatch(setLoader(false));
     }
     catch(err){
-      console.error(err);
       dispatch(setLoader(false));
+      dispatch(setAlert({type: 'warning', message: "Sorry, unable to load the posts"}))
+      navigate('/')
+      console.error(err);
     }
   }
 

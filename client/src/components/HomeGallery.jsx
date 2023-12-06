@@ -3,7 +3,7 @@ import css from './HomeGallery.module.css'
 import { useNavigate, useParams } from 'react-router-dom';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { useDispatch } from 'react-redux';
-import { setLoader } from '../Reducers/UserSlice';
+import { setAlert, setLoader } from '../Reducers/UserSlice';
 import Post from './Post';
 import { useMediaQuery } from 'react-responsive';
 
@@ -20,12 +20,17 @@ const HomeGallery = React.memo(() => {
       dispatch(setLoader(true))
       const postData = await fetch(`/api/post/category/${params.id}`)
       const res = await postData.json();
+      if(res.success===false){
+        throw new Error(res.message);
+      }
       setPosts(res);
       dispatch(setLoader(false))
     }
     catch(err){
-      console.log(err);
       dispatch(setLoader(false))
+      dispatch(setAlert({type: 'warning', message: "Sorry, unable to load"}))
+      navigate('/')
+      console.error(err);
     }
   }
 

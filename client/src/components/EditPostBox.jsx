@@ -35,15 +35,16 @@ function EditPostBox() {
         try{
             const postData = await fetch(`/api/post/p/${params.id}`);
             const res = await postData.json();
-            if(res.success==false) {
-                dispatch(setAlert({type: 'error', message: res.message}))
-                return;
+            if(res.success===false){
+                throw new Error(res.message);
             }
             setPostData(res)
             setTags(res.tags)
         }
         catch(err){
-            console.log(err);
+            dispatch(setAlert({type: 'warning', message: "Sorry, unable to load the Data"}))
+            navigate(-1)
+            console.error(err);
         }
     }
 

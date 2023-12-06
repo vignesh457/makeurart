@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import Card from '../components/Card';
-import { setLoader } from '../Reducers/UserSlice';
+import { setAlert, setLoader } from '../Reducers/UserSlice';
 import { useDispatch } from 'react-redux';
 import PostSwiper from '../components/PostSwiper';
 import css from '../pages/Home.module.css';
@@ -17,12 +17,17 @@ const HomeMain = React.memo(() => {
         dispatch(setLoader(true))
         const allUserResponse = await fetch('/api/register/');
         const allUsers = await allUserResponse.json();
+        if(allUsers.success===false){
+          throw new Error(allUsers.message);
+        }
         setCreators(allUsers);
         dispatch(setLoader(false))
       }
       catch(err){
-        console.error(err);
         dispatch(setLoader(false))
+        dispatch(setAlert({type: 'warning', message: "Sorry, unable to load"}))
+        navigate(-1)
+        console.error(err);
       }
     }
   

@@ -123,6 +123,7 @@
     .whatsappCtn, .mailCtn{
         height: 70px;
         font-size: 18px;
+        width: 85%;
     }
     .svgCtn{
         width: 100%;

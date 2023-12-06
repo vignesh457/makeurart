@@ -19,17 +19,18 @@ const PostDetails = React.memo(() => {
             dispatch(setLoader(true))
             const postData = await fetch(`/api/post/p/${params.id}`)
             const res = await postData.json();
-            if(res.success===false) {
-                dispatch(setAlert({type: 'error', message: res.message}))
-                return;
+            if(res.success===false){
+                throw new Error(res.message);
             }
             setPostData(res)
             console.log(res)
             dispatch(setLoader(false))
         }
         catch(err){
-            console.log(err);
             dispatch(setLoader(false))
+            dispatch(setAlert({type: 'warning', message: "Sorry, unable to load"}))
+            navigate('/')
+            console.error(err);
         }
     }
 

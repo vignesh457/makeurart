@@ -92,7 +92,7 @@ const Review = React.memo(() =>{
                 <div className={css.ratingDisplay}>
                     <h1>{averageRating || "No Ratings"}</h1>
                     <Rating value={averageRating} precision={0.5} readOnly/>
-                    <p>Based on {activePage.comments.length} reviews</p>
+                    <p>Based on {activePage?.comments.length} reviews</p>
                     {currentUser && <button onClick={()=>setReviewToggle(true)}>Write Review</button>}
                 </div>
                 <div className={css.ratingProgressCtn}>

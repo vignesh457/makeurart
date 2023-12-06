@@ -1,6 +1,6 @@
 import React from 'react'
 import css from './ContactDetails.module.css'
-import contactSvg from '../images/contact-svg.svg'
+import contactSvg from '../images/contact-svg.webp'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -25,7 +25,7 @@ const ContactDetails = () =>{
           { activePage.socialmedia.facebook && <a href={activePage.socialmedia.facebook}><FacebookIcon/></a> }
         </div>
         <div className={css.contactCtn}>
-          <a href={`https://wa.me/${activePage.communication.phoneno}`} className={css.whatsappCtn}><WhatsAppIcon className={css.whatsappIcon}/><span>Contact via whatsapp</span> </a>
+          <a href={`https://wa.me/91${activePage.communication.phoneno}`} className={css.whatsappCtn}><WhatsAppIcon className={css.whatsappIcon}/><span>Contact via whatsapp</span> </a>
           <a href={`mailto:${activePage.email}`} className={css.mailCtn}><MailOutlineIcon className={css.mailIcon}/><span>Contact via email</span> </a>
         </div>
       </div>
